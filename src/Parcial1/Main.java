@@ -39,5 +39,7 @@ public class Main {
             System.out.print("Dame un numero: " + (i+1));
             agenda[i]=scn.nextInt();
         }
+            
+        }
     }
-}
+
