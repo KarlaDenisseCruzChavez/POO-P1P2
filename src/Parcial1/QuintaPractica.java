@@ -34,5 +34,5 @@ public class QuintaPractica {
         else{
             System.out.println("La posición del número " + n + " es: " + pos);
         }
-    }
+    } 
 }
