@@ -66,7 +66,7 @@ public class MainProyecto {
                     c++;
                    }
                     }catch(Exception e){
-                            System.out.println("Error");
+                            System.out.println("e.getMessage()");
                             }
                    tam2--;
                    }else{
@@ -147,7 +147,7 @@ public class MainProyecto {
                        
                        
                        }catch(Exception e){
-                           System.out.println("Error");
+                           System.out.println("e.getMessage()");
                        }
                    }
                    break;
