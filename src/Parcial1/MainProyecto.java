@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 public class MainProyecto {
     public static void main(String[] args) {
+        
         Scanner scn = new Scanner(System.in);
         BufferedReader bf = new BufferedReader(new InputStreamReader (System.in));
         Cliente[] clientes;
@@ -13,7 +14,7 @@ public class MainProyecto {
        
         System.out.print("Defina el tamaño de la cartera: ");
         tam = scn.nextInt();
-        clientes = new Cliente[tam]; 
+        clientes = new Cliente[tam];  
           int tam2=tam;
         
          for (int i = 0; i < clientes.length; i++) {
@@ -25,6 +26,8 @@ public class MainProyecto {
         int n=1;
         int c=0;
         int nC=0;
+        
+        
         do{
            
             System.out.println("--------------------------------------------------------");
@@ -66,7 +69,7 @@ public class MainProyecto {
                     c++;
                    }
                     }catch(Exception e){
-                            System.out.println("Error");
+                            System.out.println(e.getMessage());
                             }
                    tam2--;
                    }else{
@@ -106,7 +109,7 @@ public class MainProyecto {
                        System.out.println("Introduzca el código que buscará: ");
                        cod=scn.nextInt();
 
-                              if(cod>=0&&cod<tam){
+                              if(cod>=0&&cod<=tam){
 
                                    System.out.println("Nombre del cliente: " + clientes[cod-1].getNombre());
                                      System.out.println("Apellido paterno del cliente: " + clientes[cod-1].getApellidoPaterno());
@@ -122,34 +125,42 @@ public class MainProyecto {
              
                    
                    }else if(opcion2==2){
-                       String nomb;
-                       try{
+                       
+                       
+                       int pos=-1;
+                      String nomb=""; 
                        System.out.println("BUSCAR POR NOMBRE");
+                       try{
                        System.out.print("Introduzca el nombre que desea buscar: ");
+                        
                        nomb=(bf .readLine());
-                       boolean existe=false;
+                       }catch(Exception e){
+                           System.out.println(e.getMessage());
+                       }
                            for (int i = 0; i < clientes.length; i++) { 
+                               
                        if(nomb.equals(clientes[i].getNombre())){
-                       System.out.println("Código del cliente: " + clientes[i].getCodigoCliente());
+                     pos=i;
+                      System.out.println("Código del cliente: " + clientes[i].getCodigoCliente());
                        System.out.println("Nombre del cliente: " + clientes[i].getNombre());
                        System.out.println("Apellido paterno del cliente: " + clientes[i].getApellidoPaterno());
                        System.out.println("Apellido materno del cliente: " + clientes[i].getApellidoMaterno());
                        System.out.println("Teléfono del cliente: " + clientes[i].getTelefono());
                        System.out.println("Direccion del cliente: " + clientes[i].getDireccion());
                        System.out.println("Edad del cliente: " + clientes[i].getEdad());
-                       existe=true;
-                       }
-                       if(!existe){
-                           System.out.println("ESE NOMBRE NO EXISTE");
+                       
                        }
                            }
+                           
                        
+                           if(pos==-1){
+                           System.out.println("ESE NOMBRE NO EXISTE");
+                       } 
                        
+                           
                        
-                       }catch(Exception e){
-                           System.out.println("Error");
-                       }
                    }
+                   
                    break;
                    
                      case 0:
